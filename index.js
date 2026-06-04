@@ -9,12 +9,14 @@ const app = new App({
   socketMode: true
 });
 
-app.command("/jso-hello", async ({ command, ack, respond }) => {
+app.command("/orbit-hello", async ({ command, ack, respond }) => {
   const start = Date.now();
   await ack();
   const latency = Date.now() - start;
   await respond({ text: `Hello!\nLatency: ${latency}ms` });
 });
+
+
 
 (async () => {
   await app.start();
