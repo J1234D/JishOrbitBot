@@ -9,11 +9,33 @@ const app = new App({
   socketMode: true
 });
 
+app.command("/orbit-status", async ({ ack, respond }) => {
+  await ack();
+
+  await respond("🟢 JishOrbit systems operational");
+});
+
 app.command("/orbit-hello", async ({ command, ack, respond }) => {
   const start = Date.now();
   await ack();
   const latency = Date.now() - start;
   await respond({ text: `Hello!\nLatency: ${latency}ms` });
+});
+
+app.command("/orbit-vibe", async ({ ack, respond }) => {
+  await ack();
+
+  const vibes = [
+    "🌌 Cosmic productivity detected",
+    "🚀 Locked in and coding hard",
+    "☕ Running on caffeine and hope",
+    "🐛 Fighting bugs heroically",
+    "🎧 Synthwave coding mode activated"
+  ];
+
+  const randomVibe = vibes[Math.floor(Math.random() * vibes.length)];
+
+  await respond(randomVibe);
 });
 
 
