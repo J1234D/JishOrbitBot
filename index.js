@@ -38,6 +38,24 @@ app.command("/orbit-vibe", async ({ ack, respond }) => {
   await respond(randomVibe);
 });
 
+app.command("/orbit-ship", async ({ ack, respond }) => {
+  await ack();
+
+  const ideas = [
+    "🌌 Build an AI-powered plant tracker for astronauts",
+    "🚀 Create a mood-based music bot",
+    "🤖 Make a bot that roasts bad code",
+    "🛰️ Build a space weather dashboard",
+    "🎮 Create a multiplayer browser game",
+    "🌱 Make a smart garden assistant",
+    "☕ Build a caffeine tracker for coders"
+  ];
+
+  const randomIdea = ideas[Math.floor(Math.random() * ideas.length)];
+
+  await respond(randomIdea);
+});
+
 
 
 (async () => {
